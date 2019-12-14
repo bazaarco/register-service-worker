@@ -26,18 +26,16 @@ export function register (swUrl, hooks = {}) {
   }
 
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      if (isLocalhost()) {
-        // This is running on localhost. Lets check if a service worker still exists or not.
-        checkValidServiceWorker(swUrl, emit, registrationOptions)
-        navigator.serviceWorker.ready.then(registration => {
-          emit('ready', registration)
-        })
-      } else {
-        // Is not local host. Just register service worker
-        registerValidSW(swUrl, emit, registrationOptions)
-      }
-    })
+    if (isLocalhost()) {
+      // This is running on localhost. Lets check if a service worker still exists or not.
+      checkValidServiceWorker(swUrl, emit, registrationOptions)
+      navigator.serviceWorker.ready.then(registration => {
+        emit('ready', registration)
+      })
+    } else {
+      // Is not local host. Just register service worker
+      registerValidSW(swUrl, emit, registrationOptions)
+    }
   }
 }
 

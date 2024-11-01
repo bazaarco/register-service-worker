@@ -3,7 +3,7 @@
   "sideEffects": false,
   "version": "1.6.2",
   "description": "Script for registering service worker, with hooks",
-  "main": "index.js",
+  "main": "index.mjs",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.js",
